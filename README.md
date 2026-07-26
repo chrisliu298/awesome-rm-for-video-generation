@@ -5,7 +5,7 @@
 </p>
 
 <p align="center">
-  <!-- entry-count-start --><a href="#contents"><img src="https://img.shields.io/badge/Entries-251-000000?style=for-the-badge&labelColor=000000" alt="Entries"></a><!-- entry-count-end -->
+  <!-- entry-count-start --><a href="#contents"><img src="https://img.shields.io/badge/Entries-256-000000?style=for-the-badge&labelColor=000000" alt="Entries"></a><!-- entry-count-end -->
   <a href="https://github.com/chrisliu298/awesome-rm-for-video-generation/stargazers"><img src="https://img.shields.io/github/stars/chrisliu298/awesome-rm-for-video-generation?style=for-the-badge&logo=github&logoColor=white&label=Stars&labelColor=000000&color=000000" alt="GitHub Stars"></a>
   <a href="https://github.com/chrisliu298/awesome-rm-for-video-generation/network/members"><img src="https://img.shields.io/github/forks/chrisliu298/awesome-rm-for-video-generation?style=for-the-badge&logo=github&logoColor=white&label=Forks&labelColor=000000&color=000000" alt="GitHub Forks"></a>
   <a href="https://github.com/chrisliu298/awesome-rm-for-video-generation/commits"><img src="https://img.shields.io/github/last-commit/chrisliu298/awesome-rm-for-video-generation?style=for-the-badge&logo=github&logoColor=white&label=Last%20Commit&labelColor=000000&color=000000" alt="Last Commit"></a>
@@ -118,7 +118,7 @@ This axis is *how the reward is built and supervised* — kept conceptually dist
 | CLIP / VLM scorer + regression or ranking head | [T2VQA](https://arxiv.org/abs/2403.11956), early [T2V-Turbo](https://arxiv.org/abs/2405.18750) reward mixtures, image-reward carryovers used in [InstructVideo](https://arxiv.org/abs/2312.12490) |
 | Specialized video encoder + regression / fusion head | [VideoScore](https://arxiv.org/abs/2406.15252), [UGVQ](https://arxiv.org/abs/2407.21408), [T2VEval](https://arxiv.org/abs/2501.08545), [CRAVE](https://arxiv.org/abs/2502.04076) |
 | MLLM / VideoLLM or reasoning judge | [AIGV-Assessor](https://arxiv.org/abs/2411.17221), [Q-Eval-100K](https://arxiv.org/abs/2503.02357), [LOVE](https://arxiv.org/abs/2505.12098), [VideoReward](https://arxiv.org/abs/2501.13918), [VideoScore2](https://arxiv.org/abs/2509.22799), [VR-Thinker](https://arxiv.org/abs/2510.10518), [TDVE-Assessor](https://arxiv.org/abs/2505.19535), [UnifiedReward](https://arxiv.org/abs/2503.05236) |
-| Specialist classifier / detector / anomaly model | [Seaweed-7B](https://arxiv.org/abs/2504.08685), [Waver](https://arxiv.org/abs/2508.15761), [LTX-Video](https://arxiv.org/abs/2501.00103), [Alice v1](https://arxiv.org/abs/2605.08115), [VBench-2.0](https://arxiv.org/abs/2503.21755) |
+| Specialist classifier / detector / anomaly model | [Seaweed-7B](https://arxiv.org/abs/2504.08685), [Waver](https://arxiv.org/abs/2508.15761), [LTX-Video](https://arxiv.org/abs/2501.00103), [Alice v1](https://arxiv.org/abs/2605.08115), [VBench](https://arxiv.org/abs/2311.17982), [VBench-2.0](https://arxiv.org/abs/2503.21755) |
 | Programmatic / analytic metric or verifier | [NewtonRewards](https://arxiv.org/abs/2512.00425), [CamVerse](https://arxiv.org/abs/2512.02870), [VIGOR](https://arxiv.org/abs/2603.16271), [SPATIALALIGN](https://arxiv.org/abs/2602.22745), [Geo-Align](https://arxiv.org/abs/2605.23903) |
 | Frozen foundation / world / geometry / inverse-dynamics critic | [WMReward](https://arxiv.org/abs/2601.10553), [Diffusion-DRF](https://arxiv.org/abs/2601.04153), [VideoGPA](https://arxiv.org/abs/2601.23286), [EVA](https://arxiv.org/abs/2603.17808) |
 | Generative / energy / self-scoring critic | [GT-SVJ](https://arxiv.org/abs/2602.05202), [Shell-LCC](https://arxiv.org/abs/2606.30248), [Proprio](https://arxiv.org/abs/2605.28230) |
@@ -313,6 +313,7 @@ Reward designs that try to move past a single opaque scalar score.
 
 ### Reasoning-based judges
 
+- [GRADEO: Towards Human-Like Evaluation for Text-to-Video Generation via Multi-Step Reasoning](https://arxiv.org/abs/2503.02341) *(2025)* — Instruction-tuned T2V evaluator that grades generated videos through explicit multi-step reasoning traces converted from human annotations, yielding explainable per-dimension assessments rather than a bare scalar.
 - [VideoScore2: Think before You Score in Generative Video Evaluation](https://arxiv.org/abs/2509.22799) *(2025)* — Chain-of-thought reward modeling with explicit sub-scores.
 - [VR-Thinker: Boosting Video Reward Models through Thinking-with-Image Reasoning](https://arxiv.org/abs/2510.10518) *(2025)* — Frame selection, visual memory, and reasoning supervision.
 - [Thinking with Frames: Generative Video Distortion Evaluation via Frame Reward Model](https://arxiv.org/abs/2601.04033) *(2026)* — REACT; frame-level reasoning model for structural distortions.
@@ -347,6 +348,7 @@ Reward papers where “better” means more physically or geometrically consiste
 - [Hierarchical Fine-grained Preference Optimization for Physically Plausible Video Generation](https://arxiv.org/abs/2508.10858) *(2025)* — PhysHPO; hierarchical preference signals over state, motion, and semantics.
 - [PhysCorr: Dual-Reward DPO for Physics-Constrained Text-to-Video Generation with Automated Preference Selection](https://arxiv.org/abs/2511.03997) *(2025)* — Dual physics rewards for object stability and interaction.
 - [PhyGDPO: Physics-Aware Groupwise Direct Preference Optimization for Physically Consistent Text-to-Video Generation](https://arxiv.org/abs/2512.24551) *(2025)* — Groupwise preference optimization with physics-guided rewards.
+- [Bootstrapping Physics-Grounded Video Generation through VLM-Guided Iterative Self-Refinement](https://arxiv.org/abs/2511.20280) *(2025)* — Training-free loop in which a VLM diagnoses physical inconsistencies in the generated video and a multimodal chain-of-thought rewrites the prompt, improving physics without touching generator weights.
 - [PhysRVG: Physics-Aware Unified Reinforcement Learning for Video Generative Models](https://arxiv.org/abs/2601.11087) *(2026)* — Unified RL treatment of physics constraints for video generation.
 - [PhyPrompt: RL-based Prompt Refinement for Physically Plausible Text-to-Video Generation](https://arxiv.org/abs/2603.03505) *(2026)* — GRPO-refined prompt LM trained with a dynamic reward curriculum that shifts from semantic fidelity toward physical commonsense scored on generated videos.
 - [What about gravity in video generation? Post-Training Newton's Laws with Verifiable Rewards](https://arxiv.org/abs/2512.00425) *(2025)* — NewtonRewards; verifiable kinematic and mass-conservation rewards using optical flow as a velocity proxy and appearance features as a mass proxy.
@@ -488,6 +490,7 @@ Not all reward models are only for post-training; some are most useful at test t
 | **T2VWorldBench** | 1,200 world-knowledge prompts across six categories with human scoring and a rubric-grounded LLaVA evaluator | [T2VWorldBench](https://arxiv.org/abs/2507.18107) |
 | **RISE-Video** | Implicit world-rule reasoning for TI2V generation, GPT-5 LMM-as-judge over reasoning alignment, temporal consistency, physical rationality, and visual quality | [RISE-Video](https://arxiv.org/abs/2602.05986) |
 | **KeyFrame-Compass** | Multi-keyframe-conditioned video generation scored on six keyframe-execution metrics via MLLM judges plus specialist perception models | [KeyFrame-Compass](https://arxiv.org/abs/2607.14202) |
+| **UniPreferBench** | Per-user preference alignment of generated images and videos, paired with the UniPrefer-100K corpus of user style preferences for preference-aligned evaluation and prompt refinement | [MagicWand](https://arxiv.org/abs/2511.18352) |
 
 ## Evaluation Suites and Stress Tests
 
@@ -501,9 +504,11 @@ These are especially useful for checking whether a reward model is merely in-dom
 - [WorldScore: A Unified Evaluation Benchmark for World Generation](https://arxiv.org/abs/2504.00983) *(2025)* — Multi-scene controllability, quality, and dynamics for world-consistent generation.
 - [Video-Bench: Human-Aligned Video Generation Benchmark](https://arxiv.org/abs/2504.04907) *(2025)* — Systematic MLLM-based benchmark with strong human alignment.
 - [LOVE: Benchmarking and Evaluating Text-to-Video Generation and Video-to-Text Interpretation](https://arxiv.org/abs/2505.12098) *(2025)* — Bidirectional benchmark for generation and interpretation.
+- [VF-Eval: Evaluating Multimodal LLMs for Generating Feedback on AIGC Videos](https://arxiv.org/abs/2505.23693) *(2025)* — Meta-evaluates MLLM judges on synthetic video through coherence validation, error awareness, error-type detection, and reasoning evaluation, then feeds the resulting feedback back into generation via prompt rewriting.
 - [HuM-Eval: A Coarse-to-Fine Framework for Human-Centric Video Evaluation](https://arxiv.org/abs/2604.25361) *(2026)* — Coarse-to-fine human-centric video evaluation that layers VLM quality scoring over pose-based anatomical and 3D-motion stability checks.
 - [SLVMEval: Synthetic Meta Evaluation Benchmark for Text-to-Long Video Generation](https://arxiv.org/abs/2603.29186) *(2026)* — Meta-evaluates T2V judge and reward systems on long videos via synthetic degradation pairs across ten quality aspects.
 - [SafeGen-Bench: Benchmarking Safety in Image-Conditioned Text-to-Video Generation](https://arxiv.org/abs/2606.01481) *(2026)* — Safety stress test for image-to-video generation that exposes guardrail brittleness and jailbreak bypass with a reusable VLM unsafety score.
+- [VBench: Comprehensive Benchmark Suite for Video Generative Models](https://arxiv.org/abs/2311.17982) *(2023)* — Dissects video generation quality into 16 hierarchical, disentangled dimensions, each with tailored prompts, a dedicated off-the-shelf metric, and per-dimension human preference annotations validating its alignment.
 - [VBench-2.0: Advancing Video Generation Benchmark Suite for Intrinsic Faithfulness](https://arxiv.org/abs/2503.21755) *(2025)* — Intrinsic-faithfulness suite (human fidelity, controllability, creativity, physics, commonsense) combining generalist VLMs with trained specialist anomaly detectors.
 - [VideoWeaver: Evaluating and Evolving Skills for Agentic Long Video Generation](https://arxiv.org/abs/2606.08091) *(2026)* — Evidence-grounded agent-as-judge that inspects execution traces, intermediate artifacts, and final videos across 16 task categories, reporting process and output metrics.
 - [Thinking in Video: Can Video Generators Really Reason About the Real World?](https://arxiv.org/abs/2607.17523) *(2026)* — Causal-Generative Dual-Judge (CGDJ); a Gemini-based adjudicator auditing whether generators' rollouts realize correct causal and physical consequences via explicit perception and implicit prediction-gap tests.
@@ -564,4 +569,4 @@ Contributions welcome! Please open a PR if you know of papers, datasets, benchma
 
 ---
 
-*Repository last updated: 2026-07-23. Literature systematically searched through April 2026; later papers added opportunistically. Coverage: core video reward model papers, foundations, preference optimization, verifiable / rule-based and non-learned reward signals, physics and world rewards, data curation and filtering, datasets, benchmarks, and tooling.*
+*Repository last updated: 2026-07-26. Literature systematically searched through April 2026; later papers added opportunistically. Coverage: core video reward model papers, foundations, preference optimization, verifiable / rule-based and non-learned reward signals, physics and world rewards, data curation and filtering, datasets, benchmarks, and tooling.*
