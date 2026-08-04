@@ -5,7 +5,7 @@
 </p>
 
 <p align="center">
-  <!-- entry-count-start --><a href="#contents"><img src="https://img.shields.io/badge/Entries-284-000000?style=for-the-badge&labelColor=000000" alt="Entries"></a><!-- entry-count-end -->
+  <!-- entry-count-start --><a href="#contents"><img src="https://img.shields.io/badge/Entries-286-000000?style=for-the-badge&labelColor=000000" alt="Entries"></a><!-- entry-count-end -->
   <a href="https://github.com/chrisliu298/awesome-rm-for-video-generation/stargazers"><img src="https://img.shields.io/github/stars/chrisliu298/awesome-rm-for-video-generation?style=for-the-badge&logo=github&logoColor=white&label=Stars&labelColor=000000&color=000000" alt="GitHub Stars"></a>
   <a href="https://github.com/chrisliu298/awesome-rm-for-video-generation/network/members"><img src="https://img.shields.io/github/forks/chrisliu298/awesome-rm-for-video-generation?style=for-the-badge&logo=github&logoColor=white&label=Forks&labelColor=000000&color=000000" alt="GitHub Forks"></a>
   <a href="https://github.com/chrisliu298/awesome-rm-for-video-generation/commits"><img src="https://img.shields.io/github/last-commit/chrisliu298/awesome-rm-for-video-generation?style=for-the-badge&logo=github&logoColor=white&label=Last%20Commit&labelColor=000000&color=000000" alt="Last Commit"></a>
@@ -295,6 +295,7 @@ Quality, artifact, or defect models whose primary role is filtering, curating, o
 - [Video-as-Answer: Predict and Generate Next Video Event with Joint-GRPO](https://arxiv.org/abs/2511.16669) *(2025)* — VANS; Joint-GRPO optimizes a captioner and a video diffusion model as a single unit under a shared reward that pushes captions toward being visualizable and videos toward staying faithful to those captions.
 - [Reinforcement Learning with Inverse Rewards for World Model Post-training](https://arxiv.org/abs/2509.23958) *(2025)* — RLIR; recovers the conditioning action from a generated rollout with an inverse dynamics model and uses the action-space match as a verifiable GRPO reward, needing no preference annotation.
 - [Manifold-Aware Exploration for Reinforcement Learning in Video Generation](https://arxiv.org/abs/2603.21872) *(2026)* — Constrains GRPO exploration to the learned video manifold via a curvature-corrected SDE sampler and a dual trust region with moving anchors, targeting the off-manifold rollouts that make video reward scores unreliable.
+- [Temporal Concentration from Rollout Errors: Implicit Preference Optimization for Text-to-Video Diffusion](https://arxiv.org/abs/2607.28058) *(2026)* — cIPO; builds annotation-free pairs by treating a real clip as chosen and its noise-then-denoise reconstruction as rejected, then restricts the DPO update to the highest-error contiguous frame window.
 
 ## Localized, Structured, and Reasoning-Based Rewards
 
@@ -353,6 +354,7 @@ Reward papers where “better” means more physically or geometrically consiste
 - [Benchmarking Scientific Understanding and Reasoning for Video Generation using VideoScience-Bench](https://arxiv.org/abs/2512.02942) *(2025)* — Treats generators as scientific reasoners over physics and chemistry prompts, with an expert-validated VLM judge scoring phenomenon congruency, correct dynamism, immutability, and spatio-temporal continuity.
 - [Physion-Eval: Evaluating Physical Realism in Generated Video via Human Reasoning](https://arxiv.org/abs/2603.19607) *(2026)* — Pairs each generated video with a real reference clip and expert reasoning traces that temporally localize glitches into fine-grained physical failure categories, supplying rationale-level rather than scalar supervision.
 - [Quantitative Video World Model Evaluation for Geometric-Consistency](https://arxiv.org/abs/2605.15185) *(2026)* — PDI-Bench; lifts segmented, point-tracked objects in generated clips into world-space 3D and scores projective-geometry residuals for scale-depth alignment, motion consistency, and structural rigidity as a human-free diagnostic.
+- [Diagnosing Under-Development of Irreversible Processes in Video Generation](https://arxiv.org/abs/2608.00617) *(2026)* — Null-tests candidate irreversibility metrics until only a progress-plus-stasis protocol survives, and shows that steering generation with a frozen differentiable attribute readout games the readout rather than producing the attribute.
 
 ### Physics-aware optimization
 
@@ -597,4 +599,4 @@ Contributions welcome! Please open a PR if you know of papers, datasets, benchma
 
 ---
 
-*Repository last updated: 2026-07-26. Literature systematically searched through April 2026; later papers added opportunistically. Coverage: core video reward model papers, foundations, preference optimization, verifiable / rule-based and non-learned reward signals, physics and world rewards, data curation and filtering, datasets, benchmarks, and tooling.*
+*Repository last updated: 2026-08-04. Literature systematically searched through April 2026; later papers added opportunistically. Coverage: core video reward model papers, foundations, preference optimization, verifiable / rule-based and non-learned reward signals, physics and world rewards, data curation and filtering, datasets, benchmarks, and tooling.*
