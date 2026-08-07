@@ -5,7 +5,7 @@
 </p>
 
 <p align="center">
-  <!-- entry-count-start --><a href="#contents"><img src="https://img.shields.io/badge/Entries-286-000000?style=for-the-badge&labelColor=000000" alt="Entries"></a><!-- entry-count-end -->
+  <!-- entry-count-start --><a href="#contents"><img src="https://img.shields.io/badge/Entries-290-000000?style=for-the-badge&labelColor=000000" alt="Entries"></a><!-- entry-count-end -->
   <a href="https://github.com/chrisliu298/awesome-rm-for-video-generation/stargazers"><img src="https://img.shields.io/github/stars/chrisliu298/awesome-rm-for-video-generation?style=for-the-badge&logo=github&logoColor=white&label=Stars&labelColor=000000&color=000000" alt="GitHub Stars"></a>
   <a href="https://github.com/chrisliu298/awesome-rm-for-video-generation/network/members"><img src="https://img.shields.io/github/forks/chrisliu298/awesome-rm-for-video-generation?style=for-the-badge&logo=github&logoColor=white&label=Forks&labelColor=000000&color=000000" alt="GitHub Forks"></a>
   <a href="https://github.com/chrisliu298/awesome-rm-for-video-generation/commits"><img src="https://img.shields.io/github/last-commit/chrisliu298/awesome-rm-for-video-generation?style=for-the-badge&logo=github&logoColor=white&label=Last%20Commit&labelColor=000000&color=000000" alt="Last Commit"></a>
@@ -36,6 +36,7 @@ Reward *signals* here span a spectrum, not just Bradley-Terry preference: **pair
 - [Foundations](#foundations)
   - [Image reward models and preference data](#image-reward-models-and-preference-data)
   - [Reward modeling, RLHF, and DPO foundations for diffusion](#reward-modeling-rlhf-and-dpo-foundations-for-diffusion)
+  - [Rubric-based rewards](#rubric-based-rewards)
   - [Adjacent video quality assessment foundations](#adjacent-video-quality-assessment-foundations)
 - [General-Purpose Video Reward Models and Judges](#general-purpose-video-reward-models-and-judges)
   - [Early generation-specific evaluators](#early-generation-specific-evaluators)
@@ -173,6 +174,7 @@ These are not all video papers, but they are essential background for understand
 - [ImageReward: Learning and Evaluating Human Preferences for Text-to-Image Generation](https://arxiv.org/abs/2304.05977) *(2023)* — Canonical learned reward model for text-to-image generation.
 - [Human Preference Score v2: A Solid Benchmark for Evaluating Human Preferences of Text-to-Image Synthesis](https://arxiv.org/abs/2306.09341) *(2023)* — Strong image preference benchmark and scorer; often used as a baseline or inherited signal.
 - [Pick-a-Pic: An Open Dataset of User Preferences for Text-to-Image Generation](https://arxiv.org/abs/2305.01569) *(2023)* — Open image preference dataset and the basis for PickScore.
+- [OneReward: Unified Mask-Guided Image Generation via Multi-Task Human Preference Learning](https://arxiv.org/abs/2508.21066) *(2025)* — A single VLM reward model judges winners per task and per criterion, driving multi-task RL across image fill, extend, object removal, and text rendering without task-specific SFT.
 
 ### Reward modeling, RLHF, and DPO foundations for diffusion
 
@@ -182,6 +184,14 @@ These are not all video papers, but they are essential background for understand
 - [Direct Preference Optimization: Your Language Model is Secretly a Reward Model](https://arxiv.org/abs/2305.18290) *(2023)* — Core preference-optimization formulation later reused by video work.
 - [Diffusion Model Alignment Using Direct Preference Optimization](https://arxiv.org/abs/2311.12908) *(2024)* — The most direct image-to-video bridge for diffusion DPO.
 - [Using Human Feedback to Fine-tune Diffusion Models without Any Reward Model](https://arxiv.org/abs/2311.13231) *(2023)* — D3PO-style alternative to explicit reward fitting.
+
+### Rubric-based rewards
+
+Text-domain origins of the rubric mechanism that video judges and benchmarks now use in place of a single scalar score.
+
+- [Rubrics as Rewards: Reinforcement Learning Beyond Verifiable Domains](https://arxiv.org/abs/2507.17746) *(2025)* — Introduces RaR; instance-specific checklists replace a single Likert judgment as the on-policy RL signal, extending verifiable-reward training to subjective domains and stabilizing smaller judges.
+- [OpenRubrics: Towards Scalable Synthetic Rubric Generation for Reward Modeling and LLM Alignment](https://arxiv.org/abs/2510.07743) *(2025)* — Contrastive rubric generation from preferred/rejected pairs yields (prompt, rubric) training data for Rubric-RM, a recipe for building rubric-based reward models at scale.
+- [RubricRL: Simple Generalizable Rewards for Text-to-Image Generation](https://arxiv.org/abs/2511.20651) *(2025)* — Constructs a prompt-adaptive rubric of fine-grained visual criteria, scores each independently with a multimodal judge, and weights them into an interpretable, user-steerable RL reward for text-to-image policies.
 
 ### Adjacent video quality assessment foundations
 
@@ -599,4 +609,4 @@ Contributions welcome! Please open a PR if you know of papers, datasets, benchma
 
 ---
 
-*Repository last updated: 2026-08-04. Literature systematically searched through April 2026; later papers added opportunistically. Coverage: core video reward model papers, foundations, preference optimization, verifiable / rule-based and non-learned reward signals, physics and world rewards, data curation and filtering, datasets, benchmarks, and tooling.*
+*Repository last updated: 2026-08-07. Literature systematically searched through April 2026; later papers added opportunistically. Coverage: core video reward model papers, foundations, preference optimization, verifiable / rule-based and non-learned reward signals, physics and world rewards, data curation and filtering, datasets, benchmarks, and tooling.*
