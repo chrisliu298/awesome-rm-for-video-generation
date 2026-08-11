@@ -236,6 +236,8 @@ Evaluator-first papers that either are used directly as reward functions or defi
 - [Omni-Reward: Towards Generalist Omni-Modal Reward Modeling with Free-Form Preferences](https://arxiv.org/abs/2510.23451) *(2025)* — Discriminative and generative omni-modal reward models trained on free-form user-stated criteria rather than fixed binary pairs, covering text-to-video generation alongside image, audio, and 3D.
 - [AVBench: Human-Aligned and Automated Evaluation Benchmark for Audio-Video Generative Models](https://arxiv.org/abs/2605.24652) *(2026)* — Fine-tunes human-centric audio-video evaluators on perturbation-derived preference pairs and converts their binary-decision confidence into continuous scores usable as a differentiable RLHF reward and data filter.
 - [VideoArgus: Agentic Rubric-Grounded Unified Evaluation for Video Generation and Editing](https://arxiv.org/abs/2608.05485) *(2026)* — Builds output-blind sample-specific rubrics and executes criterion-specific VLM and specialist-tool evidence plans across five generation and editing settings.
+- [Q-Save: Towards Scoring and Attribution for Generated Video Evaluation](https://arxiv.org/abs/2511.18825) *(2025)* — Trains a SlowFast-sampled VLM judge to score visual quality, motion quality, and text alignment with evidence-grounded attributions, then reuses its scores as an RL reward.
+- [RAVEN-Eval: Rubric-Guided Automatic Evaluation for AI Video Generation Models Based on LMM Preference Judgement](https://arxiv.org/abs/2608.09111) *(2026)* — Uses task-specific two-level rubrics to guide pairwise LMM judgments across T2V and I2V tasks, with anchor-based insertion for efficient leaderboard updates.
 
 ## Reward-Guided Optimization and Post-Training
 
@@ -271,6 +273,7 @@ Quality, artifact, or defect models whose primary role is filtering, curating, o
 - [LTX-Video: Realtime Video Latent Diffusion](https://arxiv.org/abs/2501.00103) *(2025)* — Trains a Siamese aesthetic ranker on human-tagged pairs and uses its scores to filter low-aesthetic clips from the video and image training corpus.
 - [Seaweed-7B: Cost-Effective Training of Video Generation Foundation Model](https://arxiv.org/abs/2504.08685) *(2025)* — Trains a visual-quality and artifact-classifier model for data filtering, plus Video-DPO on annotator best/worst picks from four generations per prompt.
 - [Waver: Wave Your Way to Lifelike Video Generation](https://arxiv.org/abs/2508.15761) *(2025)* — SFTs a VideoLLaMA3 quality model predicting an overall label plus 13 defect dimensions, used to filter the generator's training corpus.
+- [Artifact-Aware Evaluation for High-Quality Video Generation](https://arxiv.org/abs/2601.20297) *(2026)* — DVAR fine-tunes a video MLLM on appearance, motion, and camera artifact labels and samples motion-salient frames to filter flawed generated clips.
 
 ### DPO / IPO / GRPO and related preference optimization
 
@@ -413,6 +416,7 @@ Reward models are still sparse outside generic T2V. These papers are especially 
 - [Place-it-R1: Unlocking Environment-aware Reasoning Potential of MLLM for Video Object Insertion](https://arxiv.org/abs/2603.06140) *(2026)* — An MLLM scores insertion realism against the scene and physical environment, building preference pairs that drive spatially aware DPO for video object insertion.
 - [VEFX-Bench: A Holistic Benchmark for Generic Video Editing and Visual Effects](https://arxiv.org/abs/2604.16272) *(2026)* — Trains VEFX-Reward, an ordinal-regression reward model scoring edited videos on instruction following, rendering quality, and edit exclusivity, released with a ~5K-triplet human-annotated dataset and a 300-pair benchmark.
 - [Crayotter: Learning Long-Horizon Video Editing Agents via Group-Relative Preference Backpropagation](https://arxiv.org/abs/2608.02694) *(2026)* — Converts within-task rankings of rendered edits into zero-sum advantages and allocates delayed preference credit to semantic editing segments for PPO training.
+- [UniEditBench: A Unified and Cost-Effective Benchmark for Image and Video Editing via Distilled MLLMs](https://arxiv.org/abs/2604.15871) *(2026)* — Distills a large MLLM judge into lightweight multi-dimensional reward models for video editing, scoring structural fidelity, instruction alignment, naturalness, and temporal-spatial consistency.
 
 ### Identity preservation
 
@@ -561,6 +565,10 @@ These are especially useful for checking whether a reward model is merely in-dom
 - [VideoWeaver: Evaluating and Evolving Skills for Agentic Long Video Generation](https://arxiv.org/abs/2606.08091) *(2026)* — Evidence-grounded agent-as-judge that inspects execution traces, intermediate artifacts, and final videos across 16 task categories, reporting process and output metrics.
 - [Thinking in Video: Can Video Generators Really Reason About the Real World?](https://arxiv.org/abs/2607.17523) *(2026)* — Causal-Generative Dual-Judge (CGDJ); a Gemini-based adjudicator auditing whether generators' rollouts realize correct causal and physical consequences via explicit perception and implicit prediction-gap tests.
 - [Physics-IQ Verified](https://arxiv.org/abs/2606.18943) *(2026)* — Systematic audit of the Physics-IQ physical-understanding benchmark for video generation, refining prompts, cleaning ground-truth artifacts, and adding equal-weight sample-level scoring before re-ranking I2V models.
+- [V-ReasonBench: Toward Unified Reasoning Benchmark Suite for Video Generation Models](https://arxiv.org/abs/2511.16668) *(2025)* — Uses end-state-verifiable generation tasks to probe structured, spatial, pattern, and physical reasoning with scalable pass/fail scoring.
+- [MSVBench: Towards Human-Level Evaluation of Multi-Shot Video Generation](https://arxiv.org/abs/2602.23969) *(2026)* — Pairs hierarchical scripts and reference images with a hybrid LMM-and-specialist evaluator, then distills its reasoning traces into a lightweight multi-shot judge.
+- [FilmBench: A Film-Grade Benchmark for Cinematic Video Generation](https://arxiv.org/abs/2607.24241) *(2026)* — Operationalizes director-curated cinematic language as fine-grained T2V and R2V metrics and ships FilmOps for automatic film-grade judging.
+- [Sci-VBench: Evaluating Knowledge- and Reasoning-Intensive Video Generation in Science Domains](https://arxiv.org/abs/2608.09873) *(2026)* — Pairs expert-authored science prompts with mechanistic guides and anchored rubrics so non-experts and MLLM judges can score causal correctness and spatiotemporal consistency.
 
 ## Project Pages, Repos, and Useful Links
 
@@ -617,4 +625,4 @@ Contributions welcome! Please open a PR if you know of papers, datasets, benchma
 
 ---
 
-*Repository last updated: 2026-08-09. Literature systematically searched through April 2026; later papers added opportunistically. Coverage: core video reward model papers, foundations, preference optimization, verifiable / rule-based and non-learned reward signals, physics and world rewards, data curation and filtering, datasets, benchmarks, and tooling.*
+*Repository last updated: 2026-08-12. Literature systematically searched through April 2026; later papers added opportunistically. Coverage: core video reward model papers, foundations, preference optimization, verifiable / rule-based and non-learned reward signals, physics and world rewards, data curation and filtering, datasets, benchmarks, and tooling.*
