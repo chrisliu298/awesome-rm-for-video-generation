@@ -239,6 +239,8 @@ Evaluator-first papers that either are used directly as reward functions or defi
 - [Q-Save: Towards Scoring and Attribution for Generated Video Evaluation](https://arxiv.org/abs/2511.18825) *(2025)* — Trains a SlowFast-sampled VLM judge to score visual quality, motion quality, and text alignment with evidence-grounded attributions, then reuses its scores as an RL reward.
 - [RAVEN-Eval: Rubric-Guided Automatic Evaluation for AI Video Generation Models Based on LMM Preference Judgement](https://arxiv.org/abs/2608.09111) *(2026)* — Uses task-specific two-level rubrics to guide pairwise LMM judgments across T2V and I2V tasks, with anchor-based insertion for efficient leaderboard updates.
 - [AIGVE-MACS: Unified Multi-Aspect Commenting and Scoring Model for AI-Generated Video Evaluation](https://arxiv.org/abs/2507.01255) *(2025)* — Fine-tunes a VLM to emit aspect-wise scores and explanatory comments using token-weighted supervision and content-adaptive frame sampling.
+- [Multi-Dimensional Quality Assessment for AI-Generated Human-Centric Videos: Dataset and Model](https://arxiv.org/abs/2607.16742) *(2026)* — MoE-Rater jointly predicts dimension-wise ratings, pairwise preferences, and category-specific diagnoses through task-routed projector and LoRA experts.
+- [EduVQA: Benchmarking AI-Generated Video Quality Assessment for Education](https://arxiv.org/abs/2603.03066) *(2026)* — Uses structured mixture-of-experts routing to score perceptual quality and concept correctness in educational generated videos.
 
 ## Reward-Guided Optimization and Post-Training
 
@@ -312,6 +314,7 @@ Quality, artifact, or defect models whose primary role is filtering, curating, o
 - [Reinforcement Learning with Inverse Rewards for World Model Post-training](https://arxiv.org/abs/2509.23958) *(2025)* — RLIR; recovers the conditioning action from a generated rollout with an inverse dynamics model and uses the action-space match as a verifiable GRPO reward, needing no preference annotation.
 - [Manifold-Aware Exploration for Reinforcement Learning in Video Generation](https://arxiv.org/abs/2603.21872) *(2026)* — Constrains GRPO exploration to the learned video manifold via a curvature-corrected SDE sampler and a dual trust region with moving anchors, targeting the off-manifold rollouts that make video reward scores unreliable.
 - [Temporal Concentration from Rollout Errors: Implicit Preference Optimization for Text-to-Video Diffusion](https://arxiv.org/abs/2607.28058) *(2026)* — cIPO; builds annotation-free pairs by treating a real clip as chosen and its noise-then-denoise reconstruction as rejected, then restricts the DPO update to the highest-error contiguous frame window.
+- [AR-CoPO: Align Autoregressive Video Generation with Contrastive Policy Optimization](https://arxiv.org/abs/2603.17461) *(2026)* — Forks one autoregressive chunk into reward-scored continuations and localizes GRPO credit to that pivot while mixing on-policy and replayed rollouts.
 
 ## Localized, Structured, and Reasoning-Based Rewards
 
@@ -373,6 +376,7 @@ Reward papers where “better” means more physically or geometrically consiste
 - [Diagnosing Under-Development of Irreversible Processes in Video Generation](https://arxiv.org/abs/2608.00617) *(2026)* — Null-tests candidate irreversibility metrics until only a progress-plus-stasis protocol survives, and shows that steering generation with a frozen differentiable attribute readout games the readout rather than producing the attribute.
 - [GAUGE: A Measurement-Grounded Benchmark for Physical Fidelity in Simulation Engines and Video World Models](https://arxiv.org/abs/2608.05948) *(2026)* — Grounds world-model evaluation in measured real trajectories, testing law form, physical parameters, and temporal behavior rather than perceptual plausibility alone.
 - [Each Judge Its Own Yardstick: Per-VLM Taxonomy Discovery for Physical Video Evaluation](https://arxiv.org/abs/2606.22918) *(2026)* — JudgeFit iteratively discovers and repairs a separate physical-error taxonomy for each VLM using human-calibrated diagnostic signals.
+- [Reference-Free Assessment of Physical Consistency in World Model-based Video Generation](https://arxiv.org/abs/2606.22363) *(2026)* — Measures camera and motion inconsistency with SLAM and optical flow, localizing artifacts and filtering world-model rollouts without references.
 
 ### Physics-aware optimization
 
@@ -392,6 +396,9 @@ Reward papers where “better” means more physically or geometrically consiste
 - [WorldCycle: Self-Verifiable Reinforcement Learning for Long-Horizon Video World Models](https://arxiv.org/abs/2608.04964) *(2026)* — Turns reversible action cycles into dense annotation-free spatial-closure and temporal-consistency rewards for world-model post-training.
 - [PhysMaster: Mastering Physical Representation for Video Generation via Reinforcement Learning](https://arxiv.org/abs/2510.13809) *(2025)* — Trains an image-conditioned physical-representation encoder from downstream video-plausibility rewards and injects its features into image-to-video generation.
 - [PhyWorld: Physics-Faithful World Model for Video Generation](https://arxiv.org/abs/2605.19242) *(2026)* — Combines flow-matching continuation training with DPO over physics preference pairs to align video world-model dynamics.
+- [GrndCtrl: Grounding World Models via Self-Supervised Reward Alignment](https://arxiv.org/abs/2512.01952) *(2025)* — Applies GRPO with pose-cycle, depth-reprojection, and temporal-coherence rewards to ground world-model rollouts for navigation.
+- [PhysAgent: Reflective Agentic Physics Control for Physically Plausible Video Generation](https://arxiv.org/abs/2607.16355) *(2026)* — Closes a verifier-guided loop over physical program generation, stage-specific simulation checks, and targeted repairs before video rendering.
+- [OptiWorld: Optimal Control for Video World Generation under Physical Constraints](https://arxiv.org/abs/2606.00499) *(2026)* — Converts geometry, safety, smoothness, and efficiency costs into a manifold planner whose optimized trajectory conditions video generation.
 
 ### World and geometry critics
 
@@ -470,6 +477,7 @@ Not all reward models are only for post-training; some are most useful at test t
 - [Inference-Time Scaling for Joint Audio-Video Generation](https://arxiv.org/abs/2606.03183) *(2026)* — Multi-verifier best-of-N and evolutionary search over joint audio-video generation, with Adaptive Reward Weighting to calibrate and fuse heterogeneous rewards (VideoReward, JavisScore, ImageBind, AVHScore).
 - [Stream-T1: Test-Time Scaling for Streaming Video Generation](https://arxiv.org/abs/2605.04461) *(2026)* — Reward-guided beam search for streaming generation that combines per-frame image rewards and windowed video rewards to prune chunk candidates and gate reward-guided KV-cache memory updates.
 - [VQQA: An Agentic Approach for Video Evaluation and Quality Improvement](https://arxiv.org/abs/2603.12310) *(2026)* — Turns VLM critiques of dynamically generated visual questions into semantic gradients that close a black-box prompt-refinement loop over generated videos, replacing scalar metrics with actionable feedback.
+- [Beyond Trial-and-Error: Agentic Optimization for Image-to-Video Adherence](https://arxiv.org/abs/2608.12290) *(2026)* — Builds prompt-specific scene-graph and artifact checks, then uses their adherence score to optimize prompts, seeds, and guidance scales.
 
 ### Latent search and process rewards
 
@@ -633,4 +641,4 @@ Contributions welcome! Please open a PR if you know of papers, datasets, benchma
 
 ---
 
-*Repository last updated: 2026-08-12. Literature systematically searched through April 2026; later papers added opportunistically. Coverage: core video reward model papers, foundations, preference optimization, verifiable / rule-based and non-learned reward signals, physics and world rewards, data curation and filtering, datasets, benchmarks, and tooling.*
+*Repository last updated: 2026-08-13. Literature systematically searched through April 2026; later papers added opportunistically. Coverage: core video reward model papers, foundations, preference optimization, verifiable / rule-based and non-learned reward signals, physics and world rewards, data curation and filtering, datasets, benchmarks, and tooling.*
