@@ -5,7 +5,7 @@
 </p>
 
 <p align="center">
-  <!-- entry-count-start --><a href="#contents"><img src="https://img.shields.io/badge/Entries-290-000000?style=for-the-badge&labelColor=000000" alt="Entries"></a><!-- entry-count-end -->
+  <!-- entry-count-start --><a href="#contents"><img src="https://img.shields.io/badge/Entries-369-000000?style=for-the-badge&labelColor=000000" alt="Entries"></a><!-- entry-count-end -->
   <a href="https://github.com/chrisliu298/awesome-rm-for-video-generation/stargazers"><img src="https://img.shields.io/github/stars/chrisliu298/awesome-rm-for-video-generation?style=for-the-badge&logo=github&logoColor=white&label=Stars&labelColor=000000&color=000000" alt="GitHub Stars"></a>
   <a href="https://github.com/chrisliu298/awesome-rm-for-video-generation/network/members"><img src="https://img.shields.io/github/forks/chrisliu298/awesome-rm-for-video-generation?style=for-the-badge&logo=github&logoColor=white&label=Forks&labelColor=000000&color=000000" alt="GitHub Forks"></a>
   <a href="https://github.com/chrisliu298/awesome-rm-for-video-generation/commits"><img src="https://img.shields.io/github/last-commit/chrisliu298/awesome-rm-for-video-generation?style=for-the-badge&logo=github&logoColor=white&label=Last%20Commit&labelColor=000000&color=000000" alt="Last Commit"></a>
@@ -213,6 +213,7 @@ Evaluator-first papers that either are used directly as reward functions or defi
 - [What You See Is What Matters: A Novel Visual and Physics-Based Metric for Evaluating Video Generation Quality](https://arxiv.org/abs/2411.13609) *(2024)* — VAMP tracks segmented objects and combines color, shape, texture, velocity, and acceleration consistency into a reference-free score.
 - [Direct Motion Models for Assessing Generated Videos](https://arxiv.org/abs/2505.00209) *(2025)* — TRAJAN; a self-supervised point-trajectory model that scores motion realism in generated videos and localizes motion failures without an MLLM judge or preference labels.
 - [World Consistency Score: A Unified Metric for Video Generation Quality](https://arxiv.org/abs/2508.00144) *(2025)* — Fits a human-preference-weighted score over object permanence, relation stability, causal compliance, and flicker using open-source tracking and flow tools.
+- [Multilevel Semantic-Aware Model for AI-Generated Video Quality Assessment](https://arxiv.org/abs/2501.02706) *(2025)* — MSA-VQA; scores generated videos at frame, segment, and video levels with CLIP prompt-semantic supervision plus a semantic-mutation module for inter-frame drift.
 
 ### Large-scale and fine-grained judges
 
@@ -244,6 +245,7 @@ Evaluator-first papers that either are used directly as reward functions or defi
 - [AIGVE-MACS: Unified Multi-Aspect Commenting and Scoring Model for AI-Generated Video Evaluation](https://arxiv.org/abs/2507.01255) *(2025)* — Fine-tunes a VLM to emit aspect-wise scores and explanatory comments using token-weighted supervision and content-adaptive frame sampling.
 - [Multi-Dimensional Quality Assessment for AI-Generated Human-Centric Videos: Dataset and Model](https://arxiv.org/abs/2607.16742) *(2026)* — MoE-Rater jointly predicts dimension-wise ratings, pairwise preferences, and category-specific diagnoses through task-routed projector and LoRA experts.
 - [EduVQA: Benchmarking AI-Generated Video Quality Assessment for Education](https://arxiv.org/abs/2603.03066) *(2026)* — Uses structured mixture-of-experts routing to score perceptual quality and concept correctness in educational generated videos.
+- [VA-Judger: Reward Modeling from Human Preference Feedback for Joint Video-Audio Generation](https://arxiv.org/abs/2608.18607) *(2026)* — Trains a joint video-audio judge on the VAPref-10K pairwise-preference corpus so that cross-modal coherence is rewarded directly instead of hand-combining per-dimension metrics that invite reward hacking.
 
 ## Reward-Guided Optimization and Post-Training
 
@@ -272,6 +274,7 @@ Papers whose main contribution is using reward, preference, or verifier signals 
 - [Data-regularized Reinforcement Learning for Diffusion Models at Scale](https://arxiv.org/abs/2512.04332) *(2025)* — DDRL; combines external video-reward maximization with off-policy forward-KL data regularization to scale diffusion RL (e.g. Cosmos) while limiting reward hacking and distribution drift.
 - [On-Policy Adversarial Flow Distillation for Autoregressive Video Generation](https://arxiv.org/abs/2605.26105) *(2026)* — AFD; a prompt-paired Bradley-Terry discriminator scores teacher-versus-student rollouts and its baseline-normalized advantage becomes flow-matching supervision, distilling a black-box teacher without access to its scores or latents.
 - [Sample-Adaptive Latent Rewards for Uncertainty-Guided Diffusion Post-Training](https://arxiv.org/abs/2608.06125) *(2026)* — SURE learns candidate-dependent latent reward uncertainty and uses reliability-weighted local feedback for image and video diffusion post-training.
+- [Aligning Human Sense: Calibrated Distributional Reward Learning for Video Generation](https://arxiv.org/abs/2608.21425) *(2026)* — Elite-guided filtering calibrates noisy preference labels, a multidimensional reward *distribution* is fit by Wasserstein alignment to the empirical human distribution, and that distributional term replaces the local KL constraint in GRPO.
 
 ### Data filtering, curation, and hard-example mining
 
@@ -335,6 +338,7 @@ Reward designs that try to move past a single opaque scalar score.
 - [Video Models Can Reason with Verifiable Rewards](https://arxiv.org/abs/2605.15458) *(2026)* — Recasts video reasoning as verifiable visual trajectories with dense, decomposed rule-based verifiers (Maze, FlowFree, Sokoban) optimized via SDE-GRPO.
 - [Refining Multidimensional Video Reward Models via Disentangled Influence Functions](https://arxiv.org/abs/2605.28203) *(2026)* — Decomposes training-sample influence per reward dimension, then prunes and reweights to remove dimension-specific noisy or risky supervision in a multidimensional video reward model.
 - [CreFlow: Corrective Reflow for Sparse-Reward Embodied Video Diffusion RL](https://arxiv.org/abs/2605.14274) *(2026)* — LTL-composition constraint verifier that scores generated manipulation videos with localized violation traces over constraints, frames, and entities, driving credit-aware NFT and corrective-reflow post-training of embodied video diffusion.
+- [FIRM-Video: Check Before You Score for Reliable Text-to-Video Reward Modeling](https://arxiv.org/abs/2608.21839) *(2026)* — Check-before-score supervision that verifies dimension-specific checklists against temporal visual evidence and aggregates only the verified decisions into instruction-following, world-coherence, and perceptual-quality rewards.
 
 ### Localized and detail-aware optimization
 
@@ -385,6 +389,15 @@ Reward papers where “better” means more physically or geometrically consiste
 - [GAUGE: A Measurement-Grounded Benchmark for Physical Fidelity in Simulation Engines and Video World Models](https://arxiv.org/abs/2608.05948) *(2026)* — Grounds world-model evaluation in measured real trajectories, testing law form, physical parameters, and temporal behavior rather than perceptual plausibility alone.
 - [Each Judge Its Own Yardstick: Per-VLM Taxonomy Discovery for Physical Video Evaluation](https://arxiv.org/abs/2606.22918) *(2026)* — JudgeFit iteratively discovers and repairs a separate physical-error taxonomy for each VLM using human-calibrated diagnostic signals.
 - [Reference-Free Assessment of Physical Consistency in World Model-based Video Generation](https://arxiv.org/abs/2606.22363) *(2026)* — Measures camera and motion inconsistency with SLAM and optical flow, localizing artifacts and filtering world-model rollouts without references.
+- [A Physical Coherence Benchmark for Evaluating Video Generation Models via Optical Flow-guided Frame Prediction](https://arxiv.org/abs/2502.05503) *(2025)* — PhyCoBench; pairs law-grounded prompts with PhyCoPredictor, a cascaded optical-flow-and-frame diffusion model whose prediction error ranks physical coherence in agreement with human sorting.
+- [Can Your Model Separate Yolks with a Water Bottle? Benchmarking Physical Commonsense Understanding in Video Generation Models](https://arxiv.org/abs/2507.15824) *(2025)* — PhysVidBench; targets tool use and material interaction, scoring generated videos by turning each prompt into grounded physics questions answered from a VLM caption rather than by direct video judging.
+- [WorldBench: Benchmarking Physical Understanding of World Models by Isolating Physics Concepts](https://arxiv.org/abs/2601.21282) *(2026)* — Disentangles the usual composite physics test into concept-specific probes, from intuitive notions such as object permanence down to measurable constants like friction and viscosity.
+- [PhysicsMind: Sim and Real Mechanics Benchmarking for Physical Reasoning and Prediction in Foundational VLMs and World Models](https://arxiv.org/abs/2601.16007) *(2026)* — Pairs VQA probes with video-generation tasks over center-of-mass, lever-equilibrium, and inertia, checking whether predicted trajectories obey the same mechanical constraints as ground truth.
+- [CRONOS: Benchmarking Counterfactual Physical Consistency in Video Models](https://arxiv.org/abs/2605.23699) *(2026)* — Intervenes on viewpoint, scene, object category, and appearance while holding the physical event fixed, exposing that generated-video quality tracks surface correlations rather than causal structure.
+- [WorldOlympiad: Can Your World Model Survive a Triathlon?](https://arxiv.org/abs/2606.11129) *(2026)* — Three-track diagnosis of world models — MLLM-as-judge physical rules, Gaussian-splatting geometric reconstruction, and long-horizon interaction fidelity — across gaming, robotics, and open-domain scenarios.
+- [PlayWorld: Benchmarking World Models with Agent Players over Long-Horizon Objectives](https://arxiv.org/abs/2608.13552) *(2026)* — Replaces fixed action-conditioned evaluation with multimodal agent players that pursue long-horizon objectives, making interactive world models comparable when their required action sequences differ.
+- [R2M-Bench: Evaluating Revisit Memory via Relative Consistency in Interactive Video World Models](https://arxiv.org/abs/2608.27328) *(2026)* — Calibrates each revisit pair against gap-matched and short-range controls from the same rollout, separating genuine scene memory from the slow-motion shortcut that inflates absolute revisit similarity.
+- [PAWBench: How Far Are We from Probabilistically Aligned World Modeling?](https://arxiv.org/abs/2608.27345) *(2026)* — Scores world models as stochastic samplers, converting repeated rollouts into empirical outcome distributions and testing whether they recover the reference distribution of valid behaviors, not just one plausible one.
 
 ### Physics-aware optimization
 
@@ -423,6 +436,7 @@ Reward papers where “better” means more physically or geometrically consiste
 - [PhyDetEx: Detecting and Explaining the Physical Plausibility of T2V Models](https://arxiv.org/abs/2512.01843) *(2025)* — Trains a Qwen-based video judge that detects, scores, and explains physical violations and constructs physics preference pairs for DPO-style alignment.
 - [Improving the Physics of Video Generation with VJEPA-2 Reward Signal](https://arxiv.org/abs/2510.21840) *(2025)* — Uses a frozen VJEPA-2 self-supervised world model's surprise score as a reward to guide MAGI-1 diffusion sampling and best-of-N selection toward physically plausible motion.
 - [World-R1: Reinforcing 3D Constraints for Text-to-Video Generation](https://arxiv.org/abs/2604.24764) *(2026)* — Composite 3D-aware reward that lifts generated clips to Gaussian Splatting and scores meta-view plausibility, re-render fidelity, and camera-trajectory alignment, driving Flow-GRPO post-training.
+- [TRAVL: A Recipe for Making Video-Language Models Better Judges of Physics Implausibility](https://arxiv.org/abs/2510.07550) *(2025)* — Fine-tunes a VLM judge with balanced implausibility data and a trajectory-aware attention module, and releases ImplausiBench, a language-bias-stripped real-vs-generated benchmark for the judge itself.
 
 ## Editing, Identity, Camera, and Domain-Specific Rewards
 
@@ -437,6 +451,7 @@ Reward models are still sparse outside generic T2V. These papers are especially 
 - [VEFX-Bench: A Holistic Benchmark for Generic Video Editing and Visual Effects](https://arxiv.org/abs/2604.16272) *(2026)* — Trains VEFX-Reward, an ordinal-regression reward model scoring edited videos on instruction following, rendering quality, and edit exclusivity, released with a ~5K-triplet human-annotated dataset and a 300-pair benchmark.
 - [Crayotter: Learning Long-Horizon Video Editing Agents via Group-Relative Preference Backpropagation](https://arxiv.org/abs/2608.02694) *(2026)* — Converts within-task rankings of rendered edits into zero-sum advantages and allocates delayed preference credit to semantic editing segments for PPO training.
 - [UniEditBench: A Unified and Cost-Effective Benchmark for Image and Video Editing via Distilled MLLMs](https://arxiv.org/abs/2604.15871) *(2026)* — Distills a large MLLM judge into lightweight multi-dimensional reward models for video editing, scoring structural fidelity, instruction alignment, naturalness, and temporal-spatial consistency.
+- [BeyondMasks: Evaluating Causal and Physical Consistency in Video Object Removal](https://arxiv.org/abs/2608.20107) *(2026)* — Reframes object removal as a causal intervention and scores the induced after-effects — shadows, reflections, illumination, dynamic traces — with the CORE structured VLM protocol against clean paired references.
 
 ### Identity preservation
 
@@ -446,6 +461,7 @@ Reward models are still sparse outside generic T2V. These papers are especially 
 - [ID-Crafter: VLM-Grounded Online RL for Compositional Multi-Subject Video Generation](https://arxiv.org/abs/2511.00511) *(2025)* — Composite reward over instruction fulfillment, visual quality, and multi-subject identity preservation drives online RL for compositional multi-subject generation.
 - [DreamVideo-Omni: Omni-Motion Controlled Multi-Subject Video Customization with Latent Identity Reinforcement Learning](https://arxiv.org/abs/2603.12257) *(2026)* — Trains a latent-space identity reward model from ~27.5K human comparisons and uses it for RL alignment of multi-subject video customization under complex motion control.
 - [PersonalVideo: High ID-Fidelity Video Customization without Dynamic and Semantic Degradation](https://arxiv.org/abs/2411.17048) *(2024)* — Backpropagates a mixture of differentiable identity-consistency and semantic-consistency rewards on generated videos, replacing reconstruction supervision to inject identity without dynamic or semantic collapse.
+- [Identity-Preserving Text-to-Video Generation via Agentic Enhancement and Semantic Repair](https://arxiv.org/abs/2608.20749) *(2026)* — AESR; a black-box wrapper where a VLM localizes erroneous segments and drives targeted frame-level repair, with mixture-of-experts selection over the resulting generation and refinement paths.
 
 ### Camera control
 
@@ -453,6 +469,7 @@ Reward models are still sparse outside generic T2V. These papers are especially 
 - [Geo-Align: Video Generation Alignment via Metric Geometry Reward](https://arxiv.org/abs/2605.23903) *(2026)* — Metric-3D geometry reward extracting camera trajectories from generated videos and penalizing rotation and translation deviations for RL-based camera control.
 - [VERTIGO: Visual Preference Optimization for Cinematic Camera Trajectory Generation](https://arxiv.org/abs/2604.02467) *(2026)* — DPO on a camera-trajectory generator with VLM preferences scored on rendered previews to improve camera-controlled video pipelines.
 - [Taming Camera-Controlled Video Generation with Verifiable Geometry Reward](https://arxiv.org/abs/2512.02870) *(2025)* — CamVerse; estimates generated-vs-reference 3D camera trajectories and compares segment-wise relative poses for a dense verifiable camera-motion reward optimized with GRPO.
+- [CamWorldQA: Perceptual Quality Assessment of Camera-Controlled World Video Generation](https://arxiv.org/abs/2608.18710) *(2026)* — Human-rated benchmark of camera-trajectory-conditioned generations plus CWQA, a no-reference scorer fusing spatial, temporal, and optical-flow branches for viewpoint consistency and content preservation.
 
 ### Domain-specific alignment
 
@@ -468,6 +485,8 @@ Reward models are still sparse outside generic T2V. These papers are especially 
 - [FlowPortrait: Reinforcement Learning for Audio-Driven Portrait Video Generation](https://arxiv.org/abs/2603.00159) *(2026)* — Combines a multi-agent MLLM portrait judge (lip-sync, expressiveness, motion) with LPIPS and RAFT regularizers as the GRPO reward, with an explicit study of shortcut exploitation and reward hacking.
 - [DualDiff+: Dual-Branch Diffusion for High-Fidelity Video Generation with Reward Guidance](https://arxiv.org/abs/2503.03689) *(2025)* — Backpropagates an I3D temporal-feature distance reward through the denoiser with LoRA adapters to hold global consistency in multi-view driving-scene image-to-video generation.
 - [VlogReward: Learning Multi-Dimensional Evaluation for Vlog Editing](https://arxiv.org/abs/2607.22632) *(2026)* — Trains a six-dimensional generative reward model for vlog editing plans, using inter-group comparison rewards to preserve preference direction and return actionable feedback.
+- [RoboAlign-R1: Distilled Multimodal Reward Alignment for Robot Video World Models](https://arxiv.org/abs/2605.03821) *(2026)* — Trains a six-dimension multimodal teacher judge on RobotWorldBench, distills it into a lightweight student reward model for RL post-training, and refreshes context at inference to curb long-horizon drift.
+- [Implicit Preference Alignment for Human Image Animation](https://arxiv.org/abs/2605.07545) *(2026)* — IPA; drops preference pairs entirely, maximizing the likelihood of self-generated high-quality samples under a pretrained-prior penalty, with hand-region-aware local optimization for animation.
 
 ## Inference-Time Reward, Search, and Process Rewards
 
@@ -490,6 +509,8 @@ Not all reward models are only for post-training; some are most useful at test t
 - [VQQA: An Agentic Approach for Video Evaluation and Quality Improvement](https://arxiv.org/abs/2603.12310) *(2026)* — Turns VLM critiques of dynamically generated visual questions into semantic gradients that close a black-box prompt-refinement loop over generated videos, replacing scalar metrics with actionable feedback.
 - [Retrieval, Refinement, and Ranking for Text-to-Video Generation via Prompt Optimization and Test-Time Scaling](https://arxiv.org/abs/2603.01509) *(2026)* — Runs black-box Best-of-N over prompt-refined samples with a human-preference-weighted VQA reward checklist, then temporally interpolates the winner.
 - [Beyond Trial-and-Error: Agentic Optimization for Image-to-Video Adherence](https://arxiv.org/abs/2608.12290) *(2026)* — Builds prompt-specific scene-graph and artifact checks, then uses their adherence score to optimize prompts, seeds, and guidance scales.
+- [MSG Score: Automated Video Verification for Reliable Multi-Scene Generation](https://arxiv.org/abs/2411.19121) *(2024)* — Hierarchical attention metric for narrative and visual consistency that acts as the verifier inside a candidate-generation-and-selection loop, then is distilled into a lightweight student fast enough for runtime monitoring.
+- [MLLM-Guided Semantic Correction for Text-to-Video Generation](https://arxiv.org/abs/2608.16513) *(2026)* — Training-free mid-generation critic that previews frames during sampling, diagnoses semantic deviation with an MLLM, and corrects it by intervening on the latent trajectory rather than regenerating.
 
 ### Latent search and process rewards
 
@@ -533,6 +554,7 @@ Not all reward models are only for post-training; some are most useful at test t
 | **HF-Embodied** | Fine-grained human-feedback scores and rationales for embodied world-model video | [WorldSimBench](https://arxiv.org/abs/2410.18072) |
 | **PhyGround** | 250 law-grounded prompts, ~37.4K fine-grained human labels over generated videos, plus the open human-supervised PhyJudge-9B physics judge | [PhyGround](https://arxiv.org/abs/2605.10806) |
 | **DynamicEval** | Camera-motion-centric pairwise human preferences over videos from many T2V models, with per-video background- and foreground-consistency metrics fitted to those judgments | [DynamicEval](https://arxiv.org/abs/2510.07441) |
+| **LoViF PhyScore** | 1,554 world-model-generated 2D and 4D videos with human scores for video quality, physical realism, condition-video alignment, and temporal consistency, plus annotated physical-anomaly timestamps | [LoViF 2026 PhyScore](https://arxiv.org/abs/2605.05187) |
 
 ### Reward-ready evaluation datasets and benchmarks
 
@@ -561,6 +583,7 @@ Not all reward models are only for post-training; some are most useful at test t
 | **T2VTextBench** | Human evaluation of on-screen text fidelity and temporal consistency under dynamic scene and text transformations | [T2VTextBench](https://arxiv.org/abs/2505.04946) |
 | **VMBench** | Perception-aligned motion quality across five dimensions plus a diverse meta-guided motion prompt library | [VMBench](https://arxiv.org/abs/2503.10076) |
 | **V2V-Bench** | Video-to-video editing across temporal alignment, structural fidelity, transformation quality, visual quality, and semantic alignment | [V2V-Bench](https://arxiv.org/abs/2606.05665) |
+| **VGA-BenchV2** | Expanded VGA-Bench with 60K+ generated videos and 36K task-level human annotations over 52 aesthetic and generation sub-dimensions, plus evaluators reused as an RL reward | [VGA-BenchV2](https://arxiv.org/abs/2608.25452) |
 
 ## Evaluation Suites and Stress Tests
 
@@ -599,6 +622,16 @@ These are especially useful for checking whether a reward model is merely in-dom
 - [FilmBench: A Film-Grade Benchmark for Cinematic Video Generation](https://arxiv.org/abs/2607.24241) *(2026)* — Operationalizes director-curated cinematic language as fine-grained T2V and R2V metrics and ships FilmOps for automatic film-grade judging.
 - [Sci-VBench: Evaluating Knowledge- and Reasoning-Intensive Video Generation in Science Domains](https://arxiv.org/abs/2608.09873) *(2026)* — Pairs expert-authored science prompts with mechanistic guides and anchored rubrics so non-experts and MLLM judges can score causal correctness and spatiotemporal consistency.
 - [WorldExam: Benchmarking World Models from Apparent Appearance to Inherent Reactivity](https://arxiv.org/abs/2608.02603) *(2026)* — Separates visual quality, control adherence, spatial consistency, and scene-conditioned world reactivity across camera-, action-, and language-driven generators.
+- [STREAM: Spatio-TempoRal Evaluation and Analysis Metric for Video Generative Models](https://arxiv.org/abs/2403.09669) *(2024)* — Decomposes generated-video quality into independently measurable spatial and temporal axes, escaping FVD's spatial bias and its fixed 16-frame embedding-network limit.
+- [AIGCBench: Comprehensive Evaluation of Image-to-Video Content Generated by AI](https://arxiv.org/abs/2401.01651) *(2024)* — Image-to-video suite spanning control-video alignment, motion effects, temporal consistency, and video quality, with a generated open-domain image-text set and metrics validated against human ratings.
+- [Fréchet Video Motion Distance: A Metric for Evaluating Motion Consistency in Videos](https://arxiv.org/abs/2407.16124) *(2024)* — FVMD; builds explicit motion features from keypoint tracking and takes a Fréchet distance over them, isolating motion consistency from frame-level appearance quality.
+- [Beyond FVD: Enhanced Evaluation Metrics for Video Generation Quality](https://arxiv.org/abs/2410.05203) *(2024)* — Documents FVD's non-Gaussian features, temporal-distortion blindness, and sample-size demands, then replaces it with JEDi, an MMD over JEPA embeddings that tracks human judgment far more closely.
+- [Can You Count to Nine? A Human Evaluation Benchmark for Counting Limits in Modern Text-to-Video Models](https://arxiv.org/abs/2504.04051) *(2025)* — T2VCountBench; a human-scored numeracy stress test showing that open and commercial generators alike fail simple object-count constraints.
+- [From Preferences to Prejudice: The Role of Alignment Tuning in Shaping Social Bias in Video Diffusion Models](https://arxiv.org/abs/2510.17247) *(2025)* — VideoBiasEval; traces social bias end to end from preference data through the reward model to the aligned generator, with event-based prompts that disentangle actions from actor attributes.
+- [SemComp-Bench: Benchmarking Semantic Task Completion in Video Generation](https://arxiv.org/abs/2608.17426) *(2026)* — Scores whether a generated video reaches the intended outcome and stays semantically grounded in the reference image, using structured binary VLM questions instead of appearance consistency.
+- [VGI-Bench: Probing Visual Intelligence in Video Generation Models](https://arxiv.org/abs/2608.19583) *(2026)* — Difficulty-calibrated reasoning tasks that require a valid evolving process rather than a plausible final frame, with an analysis showing later denoising steps refine rather than correct early errors.
+- [StreamAV-Bench: A Comprehensive Benchmark for Streaming Audio-Video Generation](https://arxiv.org/abs/2608.26336) *(2026)* — Evaluates unbounded streaming audio-video generation on progressive instruction adherence and long-horizon stability alongside interactive responsiveness and state retention.
+- [Multi2AV-Safety: Benchmarking Safety in Multimodal-to-Audio-Video Generation](https://arxiv.org/abs/2608.26535) *(2026)* — Safety stress test covering every non-singleton text/image/audio/video conditioning combination, targeting harm that emerges from cross-modal composition rather than any single input.
 
 ## Project Pages, Repos, and Useful Links
 
@@ -655,4 +688,4 @@ Contributions welcome! Please open a PR if you know of papers, datasets, benchma
 
 ---
 
-*Repository last updated: 2026-08-15. Literature systematically searched through April 2026; later papers added opportunistically. Coverage: core video reward model papers, foundations, preference optimization, verifiable / rule-based and non-learned reward signals, physics and world rewards, data curation and filtering, datasets, benchmarks, and tooling.*
+*Repository last updated: 2026-08-30. Literature systematically searched through April 2026; later papers added opportunistically. Coverage: core video reward model papers, foundations, preference optimization, verifiable / rule-based and non-learned reward signals, physics and world rewards, data curation and filtering, datasets, benchmarks, and tooling.*
